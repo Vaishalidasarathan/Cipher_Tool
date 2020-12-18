@@ -20,13 +20,15 @@ pipeline {
                 docker {
                     
                     image 'grihabor/pytest'
+                    image 'grihabor/pytestrenovate/pip
+'
                   
                 }
             }
             steps {
                 sh 'python --version'
-                sh 'apt-get install secretpy'
-                sh 'apt-get install console-menu'
+                sh 'pip install secretpy'
+                sh 'pip install console-menu'
                 sh 'py.test --junit-xml test-reports/results.xml Source/testCipher.py'
             }
             post {
