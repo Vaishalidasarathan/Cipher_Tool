@@ -19,8 +19,8 @@ pipeline {
             agent {
                 docker {
                     
-                    image 'harishr14/pycipher'
-                    image 'grihabor/pytest'
+                    image 'harishr14/pytest'
+                    
 
                 }
             }
