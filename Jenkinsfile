@@ -22,7 +22,6 @@ pipeline {
                     image 'harishr14/pycipher'
                     image 'grihabor/pytest'
 
-
                 }
             }
             steps {
