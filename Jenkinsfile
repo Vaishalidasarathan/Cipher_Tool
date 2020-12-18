@@ -15,12 +15,20 @@ pipeline {
                 stash(name: 'compiled-results', includes: 'Source/*.py*')
             }
         }
+        stage('preTest'){
+        agent{
+            docker{
+                image 'renovate/pip'
+            }
+        }
+
+        }
         stage('Test') {
             agent {
                 docker {
                     
                     image 'grihabor/pytest'
-                    image 'renovate/pip'
+                    
 
                 }
             }
