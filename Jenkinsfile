@@ -6,7 +6,6 @@ pipeline {
         docker {
           image 'python:3'
         }
-<<<<<<< HEAD
         stage('Test') {
             agent {
                 docker {
@@ -26,7 +25,6 @@ pipeline {
                     junit 'test-reports/results.xml'
                 }
             }
-=======
 
       }
       steps {
@@ -39,7 +37,6 @@ pipeline {
       post {
         always {
           junit 'test-reports/results.xml'
->>>>>>> d95ffc0ad9b537dbe33dc8c3e77d4cd08d54112e
         }
 
       }
