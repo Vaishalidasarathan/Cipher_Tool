@@ -19,8 +19,8 @@ pipeline {
             agent {
                 docker {
                     
-                    image 'qnib/pytest'
-                    image 'python:3'
+                    image 'grihabor/pytest'
+                  
                 }
             }
             steps {
