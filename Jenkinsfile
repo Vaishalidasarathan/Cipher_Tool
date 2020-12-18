@@ -11,8 +11,8 @@ pipeline {
                 }
             }
             steps {
-                sh 'python -m py_compile sources/CipherTool.py'
-                stash(name: 'compiled-results', includes: 'sources/*.py*')
+                sh 'python -m py_compile Source/CipherTool.py'
+                stash(name: 'compiled-results', includes: 'Source/*.py*')
             }
         }
         stage('Test') {
@@ -22,7 +22,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'py.test --junit-xml test-reports/results.xml sources/testCipher.py'
+                sh 'py.test --junit-xml test-reports/results.xml Source/testCipher.py'
             }
             post {
                 always {
