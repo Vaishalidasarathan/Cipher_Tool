@@ -17,7 +17,7 @@ pipeline {
     stage('Test') {
       agent {
         docker {
-          image 'grihabor/pytest'
+          image 'renovate/pipgrihabor/pytest'
         }
 
       }
@@ -29,11 +29,7 @@ pipeline {
       }
       steps {
         sh 'python --version'
-        sh '''sh """
-    . .env/bin/activate
-    pip install secretpy
-    """
-'''
+        sh 'apt-get install secretpy'
         sh 'python -m pip install console-menu --user root'
         sh 'py.test --junit-xml test-reports/results.xml Source/testCipher.py'
       }
