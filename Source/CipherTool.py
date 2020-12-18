@@ -51,7 +51,7 @@ def Decryp_Affine():
 
 def Encryp_Keyword():
     data = input("Enter data to be Encrypted with Keyword algorithm : ")
-    key = nput("Enter key : ")
+    key = input("Enter key : ")
     cm = SaveSpaces(SaveCase(CryptMachine(Keyword(),key)))
     print(cm.encrypt(data))
     input("Copy if needed.............")
@@ -103,6 +103,97 @@ def Decryp_Bifid():
     cm = SaveSpaces(SaveCase(CryptMachine(Bifid(),key)))
     print(cm.decrypt(data))
     input("Copy if needed.............")
+
+def Encryp_ceaser(arg1, arg2):
+    data = arg1
+    key = int(arg2)
+    cm = SaveSpaces(SaveCase(CryptMachine(Caesar(), key)))
+    return(cm.encrypt(data))
+    
+
+def Decryp_ceaser(arg1, arg2):
+    data = arg1
+    key = int(arg2)
+    cm = SaveSpaces(SaveCase(CryptMachine(Caesar(), key)))
+    return(cm.decrypt(data))
+    
+
+def Encryp_Affine(arg1,arg2,arg3):
+    data = arg1
+    key1 = int(arg2)
+    key2 = int(arg3)
+    key=[key1,key2]
+
+    cm = SaveSpaces(SaveCase(CryptMachine(Affine(),key)))
+    return(cm.encrypt(data))
+    
+
+def Decryp_Affine(arg1,arg2,arg3):
+    data = arg1
+    key1 = int(arg2)
+    key2 = int(arg3)
+    key=[key1,key2]
+    cm = SaveSpaces(SaveCase(CryptMachine(Affine(),key)))
+    return(cm.decrypt(data))
+    
+
+def Encryp_Keyword(arg1,arg2):
+    data = arg1
+    key = arg2
+    cm = SaveSpaces(SaveCase(CryptMachine(Keyword(),key)))
+    return(cm.encrypt(data))
+    
+
+def Decryp_Keyword(arg1,arg2):
+    data = arg1
+    key = arg2
+    cm = SaveSpaces(SaveCase(CryptMachine(Keyword(),key)))
+    return(cm.decrypt(data))
+    
+
+
+def Encryp_Rot_13(arg1):
+    data = arg1
+    cm = SaveSpaces(SaveCase(CryptMachine(Rot13())))
+    return(cm.encrypt(data))
+    
+
+def Decryp_Rot_13(arg1):
+    data = arg1
+    cm = SaveSpaces(SaveCase(CryptMachine(Rot13())))
+    return(cm.decrypt(data))
+    
+
+def Encryp_Vigenere(arg1,arg2):
+    data = arg1
+    key = arg2
+    cm = SaveSpaces(SaveCase(CryptMachine(Vigenere(),key)))
+    return(cm.encrypt(data))
+    
+
+def Decryp_Vigenere(arg1,arg2):
+    data = arg1
+    key = arg2
+    cm = SaveSpaces(SaveCase(CryptMachine(Vigenere(),key)))
+    return(cm.decrypt(data))
+    
+
+def Encryp_Bifid(arg1,arg2):
+    data = arg1
+    key =int(arg2)
+    cm = SaveSpaces(SaveCase(CryptMachine(Bifid(),key)))
+    return(cm.encrypt(data))
+    
+
+def Decryp_Bifid(arg1,arg2):
+    data = arg1
+    key =int(arg2)
+    cm = SaveSpaces(SaveCase(CryptMachine(Bifid(),key)))
+    return(cm.decrypt(data))
+    
+def check_ceaser(arg1,arg2):
+    if(type(arg1) == str and type(arg2)==int):
+        return True
 
 
 
