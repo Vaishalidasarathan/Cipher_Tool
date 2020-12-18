@@ -29,7 +29,8 @@ pipeline {
       }
       steps {
         sh 'python --version'
-        sh 'pip install secretpy --user jenkins'
+        sh '''sh \'python3 -m venv /opt/venv\'
+'''
         sh 'pip install console-menu'
         sh 'py.test --junit-xml test-reports/results.xml Source/testCipher.py'
       }
