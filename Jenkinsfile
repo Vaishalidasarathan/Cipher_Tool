@@ -20,8 +20,7 @@ pipeline {
                 docker {
                     
                     image 'grihabor/pytest'
-                    image 'renovate/pip
-'
+                    image 'renovate/pip'
 
                 }
             }
