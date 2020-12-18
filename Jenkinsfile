@@ -15,12 +15,6 @@ pipeline {
     }
 
     stage('Test') {
-      agent {
-        docker {
-          image 'renovate/pipgrihabor/pytest'
-        }
-
-      }
       post {
         always {
           junit 'test-reports/results.xml'
