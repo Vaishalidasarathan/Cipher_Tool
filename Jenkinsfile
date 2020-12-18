@@ -35,5 +35,25 @@ pipeline {
                 }
             }
         }
-    }   
+        stage('Deliver') { 
+            agent any
+            environment { 
+                VOLUME = '$(pwd)/Source:/src'
+                IMAGE = 'cdrx/pyinstaller-linux:python2'
+            }
+            steps {
+                dir(path: env.BUILD_ID) { 
+                    unstash(name: 'compiled-results') 
+                    sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F CipherTool.py.py'" 
+                }
+            }
+            post {
+                success {
+                    archiveArtifacts "${env.BUILD_ID}/sources/dist/CipherTool" 
+                    sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
+                }
+            }
+        }
+    }
+    
 }
