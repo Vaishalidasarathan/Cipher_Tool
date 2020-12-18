@@ -15,29 +15,22 @@ pipeline {
                 stash(name: 'compiled-results', includes: 'Source/*.py*')
             }
         }
-        stage('preTest') {
-            agent {
-                docker {
-                    image 'renovate/pip'
-                }
-            steps {
-                    sh 'python --version'
-                    sh 'pip install secretpy'
-                    sh 'pip install console-menu'
-                }
-            }
-
-        }
         stage('Test') {
             agent {
-                docker {                    
+                docker {
+                    
+                    image 'renovate/pip'
                     image 'grihabor/pytest'
+
+
                 }
             }
             steps {
-              
+                sh 'python --version'
+                sh 'pip install secretpy'
+                sh 'pip install console-menu'
                 sh 'py.test --junit-xml test-reports/results.xml Source/testCipher.py'
-                }
+            }
             post {
                 always {
                     junit 'test-reports/results.xml'
