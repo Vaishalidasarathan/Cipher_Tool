@@ -29,7 +29,7 @@ pipeline {
       }
       steps {
         sh 'python --version'
-        sh 'pip install secretpy --user'
+        sh 'pip install secretpy --user jenkins'
         sh 'pip install console-menu'
         sh 'py.test --junit-xml test-reports/results.xml Source/testCipher.py'
       }
