@@ -42,15 +42,25 @@ class test_Cipher(unittest.TestCase):
         result = tool.Decryp_Rot_13("julqvqgurpuvpxrapebffgurebnq")
         self.assertEqual(result, "whydidthechickencrosstheroad")
     
-    def test_rot13Ency(self):
+    def test_VigEncy(self):
         
         result = tool.Encryp_Vigenere("attackatdawn","lemon")
         self.assertEqual(result, "lxfopvefrnhr")
 
-    def test_rot13Decry(self):
+    def test_vigDecry(self):
         
         result = tool.Decryp_Vigenere("lxfopvefrnhr","lemon")
         self.assertEqual(result, "attackatdawn")
+    
+    # def test_bifEncy(self):
+        
+    #     result = tool.Encryp_Bifid("defendtheeastwallofthecastle",5)
+    #     self.assertEqual(result, "ffyhmkhycpliashadtrlhcchlblr")
+
+    # def test_bifDecry(self):
+        
+    #     result = tool.Decryp_Bifid("ffyhmkhycpliashadtrlhcchlblr",5)
+    #     self.assertEqual(result, "defendtheeastwallofthecastle")    
     
 
 if __name__ == '__main__':
