@@ -49,7 +49,7 @@ pipeline {
             }
             post {
                 success {
-                    archiveArtifacts "${env.BUILD_ID}/sources/dist/CipherTool" 
+                    archiveArtifacts "${env.BUILD_ID}/Source/dist/CipherTool" 
                     sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
                 }
             }
