@@ -23,7 +23,7 @@ pipeline {
                 stash(name: 'compiled-results', includes: 'Source/*.py*')
              
                 
-            }
+            
             }
         }
         stage('Test') {
