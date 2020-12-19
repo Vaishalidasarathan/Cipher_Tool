@@ -22,11 +22,7 @@ pipeline {
                 sh 'python -m py_compile Source/CipherTool.py'
                 stash(name: 'compiled-results', includes: 'Source/*.py*')
              
-                post {
-                success {
-                    echo "Build Success"
-                    
-                }
+                
             }
             }
         }
