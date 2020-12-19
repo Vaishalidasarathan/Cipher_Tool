@@ -4,6 +4,14 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
+         stage('Email'){
+            steps{
+            emailext body: 'info',
+            subject:"Pre Build Info" + " : " + env.JOB_NAME,
+            to: 'harishrajasekarann@gmail.com'        
+            }
+        
+        }
         stage('Build') {
             agent {
                 docker {
@@ -13,6 +21,13 @@ pipeline {
             steps {
                 sh 'python -m py_compile Source/CipherTool.py'
                 stash(name: 'compiled-results', includes: 'Source/*.py*')
+             
+                post {
+                success {
+                    echo "Build Success"
+                    
+                }
+            }
             }
         }
         stage('Test') {
@@ -53,6 +68,14 @@ pipeline {
                     sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
                 }
             }
+        }
+         stage('Email Deliver'){
+            steps{
+            emailext body: 'info',
+            subject:env.JOB_NAME + " : " + currentBuild.currentResult,
+            to: 'harishrajasekarann@gmail.com'        
+            }
+        
         }
     }
     
