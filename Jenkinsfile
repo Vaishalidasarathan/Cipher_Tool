@@ -8,7 +8,7 @@ pipeline {
             steps{
             emailext body: 'info',
             subject:"Pre Build Info" + " : " + env.JOB_NAME,
-            to: 'harishrajasekarann@gmail.com'        
+            to: 'dasarathanvaishali0@gmail.com'        
             }
         
         }
@@ -69,7 +69,7 @@ pipeline {
             steps{
             emailext body: 'info',
             subject:env.JOB_NAME + " : " + currentBuild.currentResult,
-            to: 'harishrajasekarann@gmail.com'        
+            to: 'dasarathanvaishali0@gmail.com'        
             }
         
         }
