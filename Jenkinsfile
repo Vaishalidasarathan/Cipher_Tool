@@ -38,7 +38,7 @@ pipeline {
             steps {
                 sh 'python --version'
                 
-                sh 'py.test --junit-xml test-reports/results.xml Source/testCipher.py'
+                sh 'py.test --junit-xml Source/results.xml Source/testCipher.py'
             }
             post {
                 always {
