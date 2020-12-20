@@ -43,7 +43,7 @@ pipeline {
             post {
                 always {
                     junit 'Source/results.xml'
-                    archiveArtifacts "${env.BUILD_ID}/Source/results.xml"
+                    archiveArtifacts "Source/results.xml"
                 }
             }
         }
